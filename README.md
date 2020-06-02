@@ -14,9 +14,12 @@
 * [x] Users can search all products.
 * [x] Users can filter result products.
 * [x] Users can choose many color of products.
+* [x] Product show up with price, discount, current availability.
+* [x] Users can send review message with emoji icon.
 * [x] Users can not buy their own products and can not buy product with quantity exceeds current available of product.
 * [x] Users can add products to their cart or buy immediately.
 * [x] Users can make a payment for their order product.
+* [x] Users can rating for products.
 * [x] Users can receive their orderId in their email after made an order.
 * [x] Users can create new products with upload images of products.
 * [x] Users can add more color for one product.
