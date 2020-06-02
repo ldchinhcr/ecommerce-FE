@@ -250,11 +250,16 @@ function Header(props) {
             <li className="total">
               Total <span>{formatCurrency(total)}</span>
             </li>
+            {total*1 > 999999 && (
+              <li>
+                <p className="text-danger">Your transaction amount is over our limit 999,999.99 $, please consider to change the quantity!!!</p>
+              </li>
+            )}
           </ul>
         </div>
   
         <div className="checkout">
-          <Button className="button-cart" variant="outlined" type="button" onClick={() => props.history.push("/checkout")}>Check Out</Button>
+          <Button className="button-cart" variant="outlined" type="button" onClick={() => props.history.push("/checkout")} disabled={total*1 > 999999 ? true : false}>Check Out</Button>
         </div>
       </div>
     );
