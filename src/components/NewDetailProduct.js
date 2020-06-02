@@ -626,7 +626,8 @@ export default function CustomizedSteppers() {
                       details &&
                       details.description &&
                       details.color &&
-                      details.inStock
+                      details.inStock &&
+                      images
                     ? false
                     : true
                 }

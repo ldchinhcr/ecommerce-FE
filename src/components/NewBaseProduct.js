@@ -368,6 +368,7 @@ export default function NewBaseProduct() {
     setOnload(true);
     setAttribute(true);
     if (baseProduct &&
+      images &&
       fileCover &&
       details &&
       baseProduct.type &&
@@ -522,7 +523,8 @@ export default function NewBaseProduct() {
                           details &&
                           details.description &&
                           details.color &&
-                          details.inStock
+                          details.inStock &&
+                          images
                         ? false
                         : true
                     }
@@ -607,7 +609,7 @@ export default function NewBaseProduct() {
                       )}
                     </p>
                     <p>
-                      Images:{" "}
+                      Images *:{" "}
                       {images ? (
                         [...images].map((i,index) => <span key={index}>{i.name}, </span>)
                       ) : (
