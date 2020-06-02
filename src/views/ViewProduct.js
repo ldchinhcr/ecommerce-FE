@@ -342,6 +342,24 @@ export default function ViewProduct() {
     Swal.fire(alertMsgNotAllowed);
   }
   };
+
+  const onHandleBuyNow = async(p) => {
+    if (!user) {
+      Swal.fire(alertMsgNotLogined);
+      return;
+    }
+    const idxByUser = user.listInSelling.findIndex(item => item.slug === p.slug && item.product.slug === p.product.slug);
+    if (idxByUser === -1) {
+    const currentProduct = {
+      product: p.product._id,
+      color: p._id,
+      quantity: quantity*1,
+    };
+    await sendBuyNowToBE(currentProduct);
+  } else {
+    Swal.fire(alertMsgNotAllowed);
+  }
+  };
   
   const sendAddProductToBE = async (data) => {
     await checkToken();
@@ -358,6 +376,27 @@ export default function ViewProduct() {
       dispatch({ type: "UPDATE_CART", payload: responseJson.data.products });
       setCurrentCart(responseJson.data.products);
       Swal.fire(alertMsgSuccess);
+    } else if (responseJson.message === "Over Availability") {
+      Swal.fire(alertMsgOverAvailable);
+    }
+  };
+
+  const sendBuyNowToBE = async (data) => {
+    await checkToken();
+    const response = await fetch(process.env.REACT_APP_SERVER + "/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const responseJson = await response.json();
+    if (responseJson.status === true) {
+      dispatch({ type: "UPDATE_CART", payload: responseJson.data.products });
+      setCurrentCart(responseJson.data.products);
+      Swal.fire(alertMsgSuccess);
+      history.push('/cart');
     } else if (responseJson.message === "Over Availability") {
       Swal.fire(alertMsgOverAvailable);
     }
@@ -512,10 +551,7 @@ export default function ViewProduct() {
                         variant="contained"
                         type="button"
                         startIcon={<Icon>payment</Icon>}
-                        onClick={() => {
-                          onHandleAddToCart(detailProduct);
-                          history.push('/cart');
-                        }}
+                        onClick={() => onHandleBuyNow(detailProduct)}
                       >
                         Buy Now
                       </Button>

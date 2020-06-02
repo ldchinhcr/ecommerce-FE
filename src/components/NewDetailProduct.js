@@ -28,6 +28,7 @@ import GridItem from "../utils/GridItem";
 import configS3 from "../utils/AWSS3";
 import S3 from "react-aws-s3";
 import checkToken from "./RefreshToken";
+import {useDispatch} from "react-redux";
 
 
 const QontoConnector = withStyles({
@@ -160,6 +161,7 @@ export default function CustomizedSteppers() {
   const [onload, setOnload] = useState(false);
   const [attribute, setAttribute] = useState(false);
   const [noList, setNoList] = useState(null);
+  const dispatch = useDispatch();
 
   const history = useHistory();
   useEffect(() => {
@@ -285,6 +287,19 @@ export default function CustomizedSteppers() {
     zIndex: "3",
   };
 
+  const getUser = async() => {
+    await checkToken();
+    const resJson = await fetch(process.env.REACT_APP_SERVER + "/users/me", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    const res = await resJson.json();
+    if (res && res.status === true) {
+      dispatch({ type: "SET_USER", payload: res.data });
+  }
+}
+
   const onSubmit = async () => {
     setOnload(true);
     setAttribute(true);
@@ -324,6 +339,7 @@ export default function CustomizedSteppers() {
     );
     const resJson = await res.json();
     if (resJson.status === true) {
+      await getUser();
       setImages(null);
       setDetails({ color: "#000" });
       setUserChosen(null);

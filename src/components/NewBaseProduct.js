@@ -29,6 +29,7 @@ import GridContainer from "../utils/GridContainer";
 import GridItem from "../utils/GridItem";
 import Swal from 'sweetalert2';
 import checkToken from "./RefreshToken";
+import {useDispatch} from "react-redux";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,6 +82,7 @@ export default function NewBaseProduct() {
   const [srcCover, setSrcCover] = useState(null);
   const [onload, setOnload] = useState(false);
   const [attribute, setAttribute] = useState(false);
+  const dispatch = useDispatch();
 
   const alertMsgSuccess = {
     title: "Success!",
@@ -432,6 +434,19 @@ export default function NewBaseProduct() {
     }
   }
 
+  const getUser = async() => {
+    await checkToken();
+    const resJson = await fetch(process.env.REACT_APP_SERVER + "/users/me", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    const res = await resJson.json();
+    if (res && res.status === true) {
+      dispatch({ type: "SET_USER", payload: res.data });
+  }
+}
+
   const submitDetailsProduct = async (obj, product, img) => {
     await checkToken();
     let detailsProduct;
@@ -450,6 +465,7 @@ export default function NewBaseProduct() {
     });
     const resJson = await res.json();
     if (resJson.status === true) {
+      await getUser();
       setOnload(false);
       setAttribute(false);
       setBaseProduct(null);

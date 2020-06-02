@@ -106,7 +106,10 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    if (user && !user.verified && !userSetSnackPack) {
+    const tokenUrl = window.location.href.split("?verifytoken=")[1]
+    ? window.location.href.split("?verifytoken=")[1]
+    : null;
+    if (user && !user.verified && !userSetSnackPack && !tokenUrl) {
       setMsg(messageActive());
       setOpen(true);
       setUserSetSnackPack(true);
