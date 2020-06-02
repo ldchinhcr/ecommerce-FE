@@ -1,0 +1,500 @@
+.flex-w,
+.dis-flex {
+  display: flex;
+}
+.flex-w {
+  flex-wrap: wrap;
+}
+
+.flex-sb-m {
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.p-b-52 {
+  padding-bottom: 52px;
+}
+
+.stext-106 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 2;
+  font-weight: bold;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.cl6 {
+  color: #888;
+}
+
+.m-tb-10 {
+  margin-top: 10px;
+}
+
+.hov1:hover {
+  color: #333;
+  border-color: #797979;
+}
+
+.trans-04 {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.m-r-32 {
+  margin-right: 32px;
+}
+
+.m-tb-5 {
+  margin-top: 5px;
+}
+
+.flex-l-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.flex-c-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.size-104 {
+  min-width: 94px;
+  height: 40px;
+}
+
+.bor4 {
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hov-btn3:hover {
+  border-color: #2b2c31;
+  background-color: #2b2c31;
+  color: #fff;
+}
+
+.hov-btn3:hover i {
+  color: #fff;
+}
+
+.show-search .icon-search,
+.show-filter .icon-filter {display: none;}
+
+.show-search .icon-close-search,
+.show-filter .icon-close-filter {display: unset;}
+
+.show-search,
+.show-filter {
+  background-color: #f2f2f2;
+  border-color: #e7e7e7;
+  position: relative;
+}
+
+.show-search::after,
+.show-filter::after {
+  content: "";
+  position: absolute;
+  display: block;
+
+  width: 14px;
+  height: 14px;
+  background-color: #f2f2f2;
+  border-left: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+
+  transform-origin: center center;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+  left: calc(50% - 7px);
+  bottom: -8px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.show-search:hover:after,
+.show-filter:hover:after {
+  background-color: #2b2c31;
+  border-color: #2b2c31;
+}
+
+.cl2 {
+  color: #333;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+
+.show-search .icon-close-search,
+.show-filter .icon-close-filter {
+  display: unset;
+}
+
+.size-105 {
+  min-width: 111px;
+  height: 40px;
+}
+
+.dis-none {
+  display: none;
+}
+
+.p-t-10,
+.p-tb-10,
+.p-all-10 {
+  padding-top: 10px;
+}
+
+.p-b-15
+{
+  padding-bottom: 15px;
+}
+
+.bor8 {
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+}
+
+.p-l-15
+{
+  padding-left: 15px;
+}
+
+.size-113 {
+  width: 38px;
+  height: 60px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.hov-cl1 {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.hov-cl1:focus {
+  outline: none;
+}
+
+.hov-cl1:hover {
+  color: #2b2c31;
+}
+
+.mtext-107 {
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+.btn-filter {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+}
+
+.btn-filter:focus {
+  outline: none;
+}
+
+.plh2::-webkit-input-placeholder { color: #333;}
+.plh2:-moz-placeholder { color: #333;}
+.plh2::-moz-placeholder { color: #333;}
+.plh2:-ms-input-placeholder { color: #333;}
+
+.search-input {
+  border: none;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.panel-filter {
+  background-color: rgba(211, 211, 211, 0.548);
+  border: none;
+  outline: none;
+  padding: 20px;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.filter-link {
+  color: rgb(85, 83, 83);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.filter-link:hover {
+  color: #1b2579;
+  border-bottom: 1px solid rgb(85, 83, 83);
+}
+
+.filter-link-active {
+  color: #1b2579;
+  border-bottom: 1px solid rgb(85, 83, 83);
+}
+
+.image-product {
+  width: 100%;
+  height: auto;
+}
+
+.ribbon {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.ribbon span {
+  width: 150px;
+  height: 34px;
+  top: 20px;
+  right: -40px;
+  position: absolute;
+  display: block;
+  background: rgb(87, 86, 86);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  color:white;
+  text-align: center;
+  line-height: 34px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+
+.no-ribbon {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.color-icon{
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  margin: 0 5px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: 0.5px solid gray;
+}
+
+.add-to-card-cat {
+  cursor: pointer;
+  width: 100%;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  position: absolute;
+  margin-bottom: 0;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  height: 60px;
+  display: flex;
+  transition: all 0.5s ease 0s;
+}
+
+.image-card {
+  overflow-y: hidden!important;
+}
+
+.image-card:hover .add-to-card-cat {
+  bottom: 0;
+}
+
+.MuiRating-label {
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.render-reviews {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
+}
+
+.MuiPagination-ul {
+  justify-content: center;
+}
+
+.rta {
+  position: relative;
+  border-left: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  z-index: 901;
+}
+
+.rta__autocomplete {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rta__autocomplete ul {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.rta__autocomplete li {
+  margin-bottom: 5px;
+  padding: 3px 20px;
+  cursor: pointer;
+}
+
+.rta__autocomplete li:hover {
+  background-color: skyblue;
+}
+
+.emoji-mart {
+  margin-left: 25px;
+  z-index: 900;
+}
+
+.emoji-mart-light {
+  position: absolute;
+  bottom: 7vh;
+}
+
+.toggle-emoji {
+  border: none;
+  width: 50px;
+  height: auto;
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-emoji svg {
+  width: 28px;
+  height: 28px;
+}
+
+.add-to-card-cat {
+  transition: all 0.5s;
+}
+
+.add-to-card-cat:hover {
+  color: antiquewhite;
+}
+
+.trashContainer {
+  display: inline-block;
+  margin: auto;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 3px;
+}
+.trashContainer .trash {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.trashContainer .trash:hover {
+  cursor: pointer;
+}
+.trashContainer .tap {
+  width: 100%;
+  height: 15%;
+  overflow: hidden;
+}
+.trashContainer .tap2 {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+}
+.trashContainer .tip {
+  background: rgba(0, 0, 0,0.6);
+  width: 15%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px 3px 0 0;
+}
+.trashContainer .top {
+  background: rgba(0, 0, 0,0.6);
+  margin-top: 1%;
+  width: 80%;
+  height: 70%;
+  margin: auto;
+  border-radius: 3px 3px 0 0;
+}
+.trashContainer .bottom {
+  background: rgba(0, 0, 0,0.6);
+  width: 70%;
+  height: 98%;
+  margin: 2% auto 0 auto;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0 0 3px 3px;
+}
+.trashContainer .line {
+  margin: auto;
+  background-color: white;
+  /* Same as the background of the element conaining the trashContainer */
+  height: 70%;
+  width: 1px;
+}
+.MuiButtonBase-root:hover .MuiButton-label .trashContainer .tap {
+  transform: rotate(45deg) translate(0, -200%);
+  transition: transform 300ms;
+  /* Openning time */
+}
+.trashContainer .tap {
+  transform: rotate(0deg) translate(0);
+  transition: transform 150ms;
+  /* Closing time */
+}

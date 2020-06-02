@@ -1,0 +1,287 @@
+.img-cart {
+  max-width: 100%;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.button-cart {
+  transition: all 0.25s linear;
+}
+
+.button-cart::after {
+  position: relative;
+  right: -3px;
+  content: "  \276f";
+  transition: all 0.15s linear;
+}
+
+.button-cart:hover::after {
+  right: -10px;
+}
+
+.button-cart:focus {
+  outline: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.input-cart {
+  transition: all 0.25s linear;
+}
+
+.input-cart[type=number]::-webkit-inner-spin-button,
+.input-cart[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.input-cart {
+  outline: none;
+}
+
+.container-cart {
+  width: 90%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+/* --- HEADER --- */
+.header-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.header-class.container-cart {
+  margin-bottom: 1.5rem;
+}
+
+.header-class .count-cart {
+  color: #333333;
+}
+
+/* --- PRODUCT LIST --- */
+.products-cart {
+  border-top: 1px solid #ddd;
+}
+
+.products-cart > li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.row-cart {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+
+.col-cart, .quantity-cart, .remove {
+  float: left;
+}
+
+.col-cart.left {
+  width: 70%;
+}
+
+.col-cart.right {
+  width: 30%;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 30px);
+}
+
+.detail-cart {
+  padding: 0 0.5rem;
+  line-height: 2.2rem;
+  height: 100%;
+}
+
+.detail-cart .name {
+  font-size: 1.2rem;
+}
+
+.detail-cart .description {
+  color: #7d7d7d;
+  font-size: 1rem;
+}
+
+.detail-cart .price {
+  font-size: 1.5rem;
+}
+
+.quantity-cart, .remove {
+  width: 50%;
+  text-align: center;
+}
+
+.remove svg {
+  width: 60px;
+  height: 60px;
+}
+
+.quantity-cart > .input-cart {
+  display: inline-block;
+  height: 60px;
+  position: relative;
+  left: calc(50% - 30px);
+  background: #fff;
+  border: 2px solid #ddd;
+  color: #7f7f7f;
+  text-align: center;
+  font: 600 1.5rem Helvetica, Arial, sans-serif;
+}
+
+.quantity-cart > .input-cart:hover, .quantity-cart > .input-cart:focus {
+  border-color: #47413f;
+}
+
+.close {
+  fill: #7d7d7d;
+  transition: color 150ms linear,
+    background-color 150ms linear,
+    fill 150ms linear,
+    150ms opacity linear;
+  cursor: pointer;
+}
+
+.close:hover {
+  fill: #47413f;
+}
+
+/* --- SUMMARY --- */
+.promotion, .summary, .checkout {
+  float: left;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.promotion > label {
+  float: left;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.promotion > .button-cart {
+  float: left;
+  width: 20%;
+  padding: 0.5rem 0;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.promotion:hover > .button-cart  {
+  border-color: #f58551;
+  background-color: #f58551;
+}
+
+.promotion > .button-cart ::after {
+  content: "\276f";
+  font-size: 1rem;
+}
+
+.summary {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.summary ul li {
+  padding: 0.5rem 0;
+}
+
+.summary ul li span {
+  display: inline-block;
+  width: 30%;
+}
+
+.summary ul li.total {
+  font-weight: bold;
+}
+
+.checkout {
+  text-align: right;
+}
+
+.checkout > .button-cart  {
+  font-size: 1.2rem;
+  padding: 0.8rem 2.8rem;
+  border-radius: 1.5rem;
+}
+
+.empty-product {
+  text-align: center;
+}
+
+.empty-product > .button-cart  {
+  font-size: 1.3rem; 
+  padding: 10px 30px; 
+  border-radius: 5px;
+}
+
+/* --- SMALL SCREEN --- */
+@media all and (max-width: 599px) {
+  .thumbnail img {
+    display: none;
+  }
+  
+  .quantity-cart > .input-cart {
+    width: 40px;
+    height: 40px;
+    left: calc(50% - 20px);
+  }
+  
+  .remove svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --- MEDIUM & LARGE SCREEN --- */
+@media all and (min-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container-cart {
+    width: 75%;
+    max-width: 960px;
+  }
+
+  .thumbnail, .detail-cart {
+    float: left;
+  }
+
+  .thumbnail {
+    width: 35%;
+  }
+
+  .detail-cart {
+    width: 65%;
+  }
+
+  .promotion, .summary {
+    width: 50%;
+  }
+
+  .checkout {
+    width: 100%;
+  }
+
+  .checkout, .summary {
+    text-align: right;
+  }
+}
+
+/* --- LARGE SCREEN --- */
+@media all and (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
