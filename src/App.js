@@ -61,7 +61,7 @@ function App() {
       if (res && res.status === true) {
         localStorage.setItem("token", accessToken);
         dispatch({ type: "SET_USER", payload: res.data });
-        window.history.pushState({}, document.title, window.location.pathname);
+        window.history.pushState({}, document.title, window.location.pathname + window.location.search ? window.location.search : null);
         const cart = await getCart();
         if (cart) {
           dispatch({ type: "UPDATE_CART", payload: cart.products });
@@ -98,8 +98,7 @@ function App() {
     return (
       <div>
         <Switch>
-          <Route path="/" exact render={() => <div />} />
-          <Route path="/verifyaccount" exact component={VerifiedAccount} />
+          <Route path="/" render={() => <div />} />
         </Switch>
       </div>
     );

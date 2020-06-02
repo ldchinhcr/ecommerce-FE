@@ -205,8 +205,8 @@ export default function ResetPassword() {
             type="submit"
             className={classes.button}
             >
-            {!onload ? <span>Register <TelegramIcon/></span> : <CircularProgress className={classes.white}  size={24}
-            thickness={4}/>}
+            {!onload ? <span>Submit <TelegramIcon/></span> : <CircularProgress className={classes.white}  size={22}
+            thickness={2}/>}
           </Button>
           </div>
           </form>
