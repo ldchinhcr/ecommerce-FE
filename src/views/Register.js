@@ -16,6 +16,7 @@ import HowToRegIcon from "@material-ui/icons/HowToReg";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import Fade from 'react-reveal/Fade';
+import Swal from 'sweetalert2';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -106,8 +107,18 @@ export default function Register() {
     if (resJson.status === true) {
       setAttribute(false);
       setRegSuccess(true);
+    } else if (resJson.message === "This email already in use!") {
+      Swal.fire({
+        title: "Alert!!!",
+        text: resJson.message,
+        icon: "warning",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setAttribute(false);
     } else {
       alert("Something went wrong, try again later");
+      setAttribute(false);
     }
     setOnload(false);
   };

@@ -61,7 +61,11 @@ function App() {
       if (res && res.status === true) {
         localStorage.setItem("token", accessToken);
         dispatch({ type: "SET_USER", payload: res.data });
-        window.history.pushState({}, document.title, window.location.pathname + window.location.search ? window.location.search : null);
+        if (hashedTokenUrl) {
+          window.history.pushState({}, document.title, window.location.pathname);
+        } else {
+          window.history.pushState({}, document.title, window.location.pathname + window.location.search ? window.location.search : null);
+        }
         const cart = await getCart();
         if (cart) {
           dispatch({ type: "UPDATE_CART", payload: cart.products });

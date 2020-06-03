@@ -10,6 +10,7 @@ import {
   TableRow,
   Paper,
   TablePagination,
+  Icon
 } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
@@ -190,7 +191,7 @@ export default function ItemsInSelling(props) {
             } else if (column.id === "updateRoot") {
               return (
                 <TableCell key={column.id} align={column.align}>
-                  <Button type="button" onClick={()=> props.handleRootUpdate(row)}>{column.label}</Button>
+                  <Button type="button" onClick={()=> props.handleRootUpdate(row)}><Icon className="fad fa-edit"></Icon></Button>
                 </TableCell>
               );
             } else if (column.id === "price") {
@@ -202,7 +203,7 @@ export default function ItemsInSelling(props) {
             } else if (column.id === "update") {
               return (
                 <TableCell key={column.id} align={column.align}>
-                  <Button type="button" onClick={()=> props.handleDetailUpdate(row)}>{column.label}</Button>
+                  <Button type="button" onClick={()=> props.handleDetailUpdate(row)}><Icon className="fa fa-edit"></Icon></Button>
                 </TableCell>
               );
             } else {
