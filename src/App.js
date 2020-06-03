@@ -105,10 +105,10 @@ function App() {
   }
 
   return (
-    <div style={{height: '100vh'}}>
+    <div>
+    <ScrollToTop>
+    <Scroller />
     <NavBar />
-      <Scroller />
-      <ScrollToTop>
         <Switch>
           <Route path="/" exact component={Homepage} />
           <AuthRoute path="/login" component={Login} />
@@ -128,8 +128,8 @@ function App() {
           <AuthExe path="/checkout" component={CheckOut} />
           <Route path="*" component={NotFound} />
         </Switch>
-      </ScrollToTop>
-      <Footer />
+        <Footer />
+        </ScrollToTop>
     </div>
   );
 }

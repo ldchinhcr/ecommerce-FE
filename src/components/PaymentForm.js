@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/paymentcard.css";
 import Swal from 'sweetalert2';
+import payment from 'payment';
 
 const alertMsgNotCorrectCard = {
   title: "Warning!!!",
@@ -400,9 +401,8 @@ export default class PaymentForm extends React.Component {
 
             setTimeout(() => {
                 // Validate before set it to completed or rejected
-              const regex = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])|[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/g;
               const cardNumCheck = this.props.cardInfo.number.split(" ").join("");
-              if (regex.test(cardNumCheck)) {
+              if (payment.fns.validateCardNumber(cardNumCheck)) {
               this.props.setValidateCard(true);
               this.props.setCardInfo({...this.props.cardInfo, number: this.props.cardInfo.number});
               } else {

@@ -89,7 +89,7 @@ export default function ReviewBill(props) {
     { name: "Card holder", detail: props.cardInfo.name },
     {
       name: "Card number",
-      detail: `xxxx-xxxx-xxxx-${props.cardInfo.number.substring(
+      detail: `XXXX-XXXX-XXXX-${props.cardInfo.number.substring(
         props.cardInfo.number.length - 4,
         props.cardInfo.number.length
       )}`,
@@ -133,8 +133,9 @@ export default function ReviewBill(props) {
         </ListItem>
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-            $ {priceObj.total}
+          <Typography variant="subtitle1" className={classes.total} component="div">
+            <div>$ {priceObj.total}</div>
+            {priceObj.total > 999999 ? <div>Total amount is too high than max transaction amount: 999,999 $</div> : null}
           </Typography>
         </ListItem>
       </List>
