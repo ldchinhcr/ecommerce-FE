@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -75,10 +74,10 @@ export default function ItemsSold() {
                       key={el._id}
                       className="d-flex justify-content-start align-items-center"
                     >
-                      {el.color.product.name} - Color:{" "}
-                      {el.color.color !== "rally" ? (
+                      {el.product} - Color:{" "}
+                      {el.color !== "rally" ? (
                         <span
-                          style={{ backgroundColor: el.color.color }}
+                          style={{ backgroundColor: el.color }}
                           className="color-icon"
                         ></span>
                       ) : (

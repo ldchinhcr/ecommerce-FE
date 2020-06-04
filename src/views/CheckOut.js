@@ -179,7 +179,6 @@ export default function CheckOut() {
 
   const deleteCartToBE = async() => {
     try {
-    await checkToken();
     const options = {
         method: 'DELETE',
         headers: {

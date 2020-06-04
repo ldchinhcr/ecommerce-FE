@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -54,6 +53,7 @@ export default function ItemsInSelling() {
     return <div>Your buying history is empty, ready to buy something?</div>;
   }
 
+
   const htmllistPurchased = listPurchased.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
     return (
       <TableRow hover role="checkbox" tabIndex={-1} key={row._id}>
@@ -73,10 +73,10 @@ export default function ItemsInSelling() {
                       key={el._id}
                       className="d-flex justify-content-start align-items-center"
                     >
-                      {el.color.product.name} - Color:{" "}
-                      {el.color.color !== "rally" ? (
+                      {el.product} - Color:{" "}
+                      {el.color !== "rally" ? (
                         <span
-                          style={{ backgroundColor: el.color.color }}
+                          style={{ backgroundColor: el.color }}
                           className="color-icon"
                         ></span>
                       ) : (

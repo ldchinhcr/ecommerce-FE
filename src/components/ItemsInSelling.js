@@ -116,21 +116,33 @@ export default function ItemsInSelling(props) {
   }
 }
 
-  const deleteProduct = async (type, product, id) => {
-    await checkToken();
-    const options = {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+  const deleteProduct = (type, product, id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this product!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#201f1fa1',
+      cancelButtonColor: '#ddd',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(async (result) => {
+      if (result.value) {
+        await checkToken();
+        const options = {
+          method: 'DELETE',
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        }
+        const reponse = await fetch(process.env.REACT_APP_SERVER + "/category/" + type + "/products/" + product + "/" + id, options);
+        if (reponse.status === 204) {
+          Swal.fire(alertMsgSuccess);
+          fetchUserAgain();
+        } else {
+          Swal.fire(alertMsgError);
+        }
       }
-    }
-    const reponse = await fetch(process.env.REACT_APP_SERVER + "/category/" + type + "/products/" + product + "/" + id, options);
-    if (reponse.status === 204) {
-      Swal.fire(alertMsgSuccess);
-      fetchUserAgain();
-    } else {
-      Swal.fire(alertMsgError);
-    }
+    })
   };
 
   const toProductClicked = (t, p , c) => {
