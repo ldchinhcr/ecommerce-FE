@@ -77,7 +77,14 @@ export default function ChangePassword() {
     e.preventDefault();
     setOnload(true);
     setAttribute(true);
-    if (!obj.currentPassword || !obj.password || !obj.passwordConfirm) {
+    if (user.socialsOAuth) {
+      if (!obj.password || !obj.passwordConfirm) {
+        Swal.fire(alertMsgRequired);
+        setAttribute(false);
+        setOnload(false);
+        return;
+      }
+    } else if (!obj.currentPassword || !obj.password || !obj.passwordConfirm) {
       Swal.fire(alertMsgRequired);
       setAttribute(false);
       setOnload(false);

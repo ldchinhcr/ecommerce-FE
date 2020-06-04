@@ -424,6 +424,7 @@ export default function NewBaseProduct() {
       body: JSON.stringify(obj)
     });
     const resJson = await res.json();
+    console.log(resJson)
     if (resJson.status === true) {
       const product = resJson.data
       submitDetailsProduct(obj, product, img);
