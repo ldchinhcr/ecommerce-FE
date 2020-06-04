@@ -25,19 +25,19 @@ export default class ShopCarousel extends React.Component {
             <div className="d-flex text-center flex-column">
             <Fade top cascade exit={false} delay={500}>
               <div className="title" data-swiper-parallax="-300">
-                Slide 1
+                The Chalet Collection
               </div>
             </Fade>
             <Fade bottom cascade exit={false} delay={1000}>
               <div className="subtitle" data-swiper-parallax="-200">
-                Subtitle
+              Start strong
               </div>
               </Fade>
             <Fade opposite cascade exit={false} delay={1500}>
               <div className="text" data-swiper-parallax="-100">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam dictum mattis velit.
+                Featuring bold colors and stripes,
+                this luggage is made to inspire winter travel
                 </p>
               </div>
               </Fade>
@@ -47,19 +47,18 @@ export default class ShopCarousel extends React.Component {
             <div className="d-flex text-center flex-column">
             <Fade top cascade exit={false} delay={500}>
               <div className="title" data-swiper-parallax="-300">
-                Slide 2
+                The Pantone
               </div>
             </Fade>
             <Fade bottom cascade exit={false} delay={1000}>
               <div className="subtitle" data-swiper-parallax="-200">
-                Subtitle
+                Styled Fashion
               </div>
               </Fade>
             <Fade opposite cascade exit={false} delay={1500}>
               <div className="text" data-swiper-parallax="-100">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam dictum mattis velit.
+                As Pantone’s exclusive luggage partner, we drenched our Bigger Carry-On zipper to zipper in their Color of the Year
                 </p>
               </div>
               </Fade>
@@ -69,19 +68,18 @@ export default class ShopCarousel extends React.Component {
             <div className="d-flex text-center flex-column">
             <Fade top cascade exit={false} delay={500}>
               <div className="title" data-swiper-parallax="-300">
-                Slide 3
+              Bag and gown
               </div>
             </Fade>
             <Fade bottom cascade exit={false} delay={1000}>
               <div className="subtitle" data-swiper-parallax="-200">
-                Subtitle
+              Your travel uniform keep you moving
               </div>
               </Fade>
             <Fade opposite cascade exit={false} delay={1500}>
               <div className="text" data-swiper-parallax="-100">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam dictum mattis velit.
+                Give the grad in your life: a travel uniform of their own
                 </p>
               </div>
               </Fade>

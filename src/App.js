@@ -12,7 +12,7 @@ import ResetPassword from "./views/ResetPassword";
 import VerifiedAccount from "./views/VerifiedAccount";
 import AddProduct from "./views/AddProduct";
 import Register from "./views/Register";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import NotFound from "./views/NotFound";
 import Shop from "./views/Shop";
 import Category from "./views/Category";
