@@ -148,9 +148,6 @@ export default function ViewProduct() {
   const [review, setReview] = useState({ rating: null, content: "" });
   const [newArrayCombineItems, setNewArrayCombineItems] = useState(null);
   const [page, setPage] = useState(1);
-  const [currentCart, setCurrentCart] = useState(
-    useSelector((state) => state.cart)
-  );
 
   const alertMsgSuccess = {
     title: "Success!",
@@ -191,6 +188,15 @@ export default function ViewProduct() {
     showConfirmButton: false,
     timer: 1500,
   }
+
+  const alertMsgLimitQuantity = {
+    title: "Not Allowed!!!",
+    text: "Product's quantity must be greater than or equal to 1!",
+    icon: "warning",
+    showConfirmButton: false,
+    timer: 1500,
+  }
+
 
   const shuffleRandomItems = () => {
     let combineListItems = otherProducts.filter((el) => el.type !== type);
@@ -330,6 +336,10 @@ export default function ViewProduct() {
       Swal.fire(alertMsgNotLogined);
       return;
     }
+    if (quantity*1 < 1) {
+      Swal.fire(alertMsgLimitQuantity);
+      return;
+    }
     const idxByUser = user.listInSelling.findIndex(item => item.slug === p.slug && item.product.slug === p.product.slug);
     if (idxByUser === -1) {
     const currentProduct = {
@@ -346,6 +356,10 @@ export default function ViewProduct() {
   const onHandleBuyNow = async(p) => {
     if (!user) {
       Swal.fire(alertMsgNotLogined);
+      return;
+    }
+    if (quantity*1 < 1) {
+      Swal.fire(alertMsgLimitQuantity);
       return;
     }
     const idxByUser = user.listInSelling.findIndex(item => item.slug === p.slug && item.product.slug === p.product.slug);
@@ -374,10 +388,11 @@ export default function ViewProduct() {
     const responseJson = await response.json();
     if (responseJson.status === true) {
       dispatch({ type: "UPDATE_CART", payload: responseJson.data.products });
-      setCurrentCart(responseJson.data.products);
       Swal.fire(alertMsgSuccess);
     } else if (responseJson.message === "Over Availability") {
       Swal.fire(alertMsgOverAvailable);
+    } else {
+      Swal.fire(alertMsgError);
     }
   };
 
@@ -394,11 +409,12 @@ export default function ViewProduct() {
     const responseJson = await response.json();
     if (responseJson.status === true) {
       dispatch({ type: "UPDATE_CART", payload: responseJson.data.products });
-      setCurrentCart(responseJson.data.products);
       Swal.fire(alertMsgSuccess);
       history.push('/cart');
     } else if (responseJson.message === "Over Availability") {
       Swal.fire(alertMsgOverAvailable);
+    } else {
+      Swal.fire(alertMsgError);
     }
   };
 
