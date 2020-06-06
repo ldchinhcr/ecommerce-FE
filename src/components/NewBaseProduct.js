@@ -27,9 +27,10 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import ColorPicker from "material-ui-color-picker";
 import GridContainer from "../utils/GridContainer";
 import GridItem from "../utils/GridItem";
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/src/sweetalert2.js';
 import checkToken from "./RefreshToken";
 import {useDispatch} from "react-redux";
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,14 +89,18 @@ export default function NewBaseProduct() {
     title: "Success!",
     text: "Product created successfully!",
     icon: "success",
-    confirmButtonText: "Nice"
+    iconHtml: '<i class="fad fa-check-circle"></i>',
+    showConfirmButton: false,
+    timer: 1500,
   };
 
   const alertMsgError = {
     title: "Error!",
     text: "Something went wrong while fetch new user database!",
     icon: "error",
-    confirmButtonText: "Ok!"
+    iconHtml: '<i class="fad fa-times"></i>',
+    showConfirmButton: false,
+    timer: 1500,
   };
 
   const S3Uploader = new S3(configS3);

@@ -11,7 +11,8 @@ import { useHistory, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from 'react-reveal/Fade';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +60,7 @@ export default function Login() {
     text: "Your email or password is not correct!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1500,
   }
 

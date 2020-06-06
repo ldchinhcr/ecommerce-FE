@@ -6,7 +6,9 @@ import rally from '../assets/img/color/rally.png';
 import "../styles/cart.css";
 import { Button } from '@material-ui/core';
 import {useHistory} from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js'
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
+
 
 export default function Cart() {
     const user = useSelector(state => state.user);
@@ -21,6 +23,7 @@ export default function Cart() {
       text: "You have provide quantity exceeds available products or this product has been unavailable for sale!",
       icon: "warning",
       showConfirmButton: false,
+      iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
       timer: 1500,
     }
 

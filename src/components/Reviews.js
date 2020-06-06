@@ -18,6 +18,8 @@ import "emoji-mart/css/emoji-mart.css";
 import { getByNative } from "../utils/regexCheckEmoji";
 import { EmojiReg } from "../utils/EmojsRegex";
 import anonymous from "../assets/img/anonymous.png";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const moment = require("moment");
 
@@ -82,10 +84,35 @@ export default function Reviews(props) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const limitShow = 5;
-  const [attribute, setAttribute] = useState(false);
-  const [onload, setOnload] = useState(false);
   const user = useSelector((state) => state.user);
   let [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+  const alertMsgSuccess = {
+    title: "Success!",
+    text: "Review has been created successfully!",
+    icon: "success",
+    iconHtml: '<i class="fad fa-check-circle"></i>',
+    showConfirmButton: false,
+    timer: 1500,
+  };
+
+  const alertMsgError = {
+    title: "Error!",
+    text: "Something wrong, try again later!",
+    icon: "error",
+    iconHtml: '<i class="fad fa-times"></i>',
+    showConfirmButton: false,
+    timer: 1500,
+  };
+
+  const alertMsgContent = {
+    title: "Empty Content!!!",
+    text: "Please provide rating star and input content!",
+    icon: "warning",
+    showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
+    timer: 1500,
+  };
 
   function addEmoji(emoji) {
     const text = `${props.review.content}${emoji.native}`;
@@ -119,7 +146,7 @@ export default function Reviews(props) {
 
   const handleSubmit = async() => {
     if (!props.review.rating || !props.review.content) {
-      alert('Please provide rating star and input content');
+      Swal.fire(alertMsgContent);
       return;
     }
     const options = {
@@ -133,7 +160,7 @@ export default function Reviews(props) {
     const response = await fetch(process.env.REACT_APP_SERVER + '/category/' + props.product.type.slug + '/products/' + props.product.product.slug + '/reviews', options);
     const data = await response.json();
     if (data.status === true) {
-      alert('Your review created successfully!')
+      Swal.fire(alertMsgSuccess);
       props.getProduct(props.product.type.slug, props.product.product.slug, props.product.slug, props.page);
       props.setReview({rating: null, content: ""});
       window.scrollTo({
@@ -141,7 +168,7 @@ export default function Reviews(props) {
         behavior: 'smooth'
       })
     } else {
-      alert('Something went wrong! Please try again later!!')
+      Swal.fire(alertMsgError);
     }
   };
 

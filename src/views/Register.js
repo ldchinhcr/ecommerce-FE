@@ -16,7 +16,8 @@ import HowToRegIcon from "@material-ui/icons/HowToReg";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import Fade from 'react-reveal/Fade';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -113,11 +114,19 @@ export default function Register() {
         text: resJson.message,
         icon: "warning",
         showConfirmButton: false,
+        iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
         timer: 1500
       });
       setAttribute(false);
     } else {
-      alert("Something went wrong, try again later");
+      Swal.fire({
+        title: "Error!!!",
+        text: "Something went wrong, try again later",
+        icon: "error",
+        showConfirmButton: false,
+        iconHtml: '<i class="fad fa-times"></i>',
+        timer: 1500
+      });
       setAttribute(false);
     }
     setOnload(false);

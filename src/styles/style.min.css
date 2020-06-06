@@ -312,3 +312,23 @@ html, body {
 .modal-content {
   margin-top: 100px;
 }
+
+.swal2-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.swal2-icon.swal2-error {
+  transform: scale(0.7) translateY(24px)!important;
+}
+
+.swal2-icon.swal2-success {
+  transform: scale(0.7) translateY(24px)!important;
+}
+
+.swal2-icon.swal2-warning {
+  transform: scale(0.7) translateY(24px)!important;
+}
+
+.swal2-icon.swal2-info {
+  transform: scale(0.7) translateY(24px)!important;
+}

@@ -15,7 +15,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import checkToken from "../components/RefreshToken";
 import dataListCountry from "../assets/data-country.json";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js'
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -109,9 +110,10 @@ export default function CheckOut() {
   const alertMsgOverAvailable = (text) => {
     return {
       title: "Warning!!!",
-      text: `Some product has been exceeds available, ${text}!`,
+      text: `Some products has been exceeds current available quantity, ${text}!`,
       icon: "warning",
       showConfirmButton: false,
+      iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
       timer: 1500,
     }
   }

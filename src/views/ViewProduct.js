@@ -17,10 +17,11 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Reviews from "../components/Reviews";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js'
 import { useSelector, useDispatch } from "react-redux";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import checkToken from "../components/RefreshToken";
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 
 const useStyles = makeStyles(styles);
@@ -154,6 +155,7 @@ export default function ViewProduct() {
     text: "Product has been added to your cart successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -162,6 +164,7 @@ export default function ViewProduct() {
     text: "Something wrong, try again later!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1000,
   };
 
@@ -170,6 +173,7 @@ export default function ViewProduct() {
     text: "You must be logged in first!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -178,6 +182,7 @@ export default function ViewProduct() {
     text: "This is your product has post for selling!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   }
 
@@ -186,6 +191,7 @@ export default function ViewProduct() {
     text: "You have provide quantity exceeds available products or this product has been unavailable for sale!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   }
 
@@ -194,6 +200,7 @@ export default function ViewProduct() {
     text: "Product's quantity must be greater than or equal to 1!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   }
 

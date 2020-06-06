@@ -6,9 +6,10 @@ import configS3 from "../utils/AWSS3";
 import S3 from "react-aws-s3";
 import checkToken from "./RefreshToken";
 import { Modal } from "react-bootstrap";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js';
 import { CircularProgress } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -54,6 +55,7 @@ export default function UpdateProduct(props) {
     text: "Your product has been updated successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -62,6 +64,7 @@ export default function UpdateProduct(props) {
     text: "Your must provide some information to update!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -70,6 +73,7 @@ export default function UpdateProduct(props) {
     text: "Something went wrong while update your product!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -78,6 +82,7 @@ export default function UpdateProduct(props) {
     text: "This product is not belong to your to modify!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 2000,
   };
 
@@ -86,6 +91,7 @@ export default function UpdateProduct(props) {
     text: "Discount must be between 0 and 100!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 2000,
   };
 

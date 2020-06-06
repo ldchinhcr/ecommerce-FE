@@ -4,7 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {useSelector} from "react-redux";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,7 @@ export default function ChangePassword() {
     text: "Your password has been updated successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -47,6 +49,7 @@ export default function ChangePassword() {
     text: "Something went wrong, please try again later!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1500,
   };
 
@@ -55,6 +58,7 @@ export default function ChangePassword() {
     text: "Please provide all required information!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 

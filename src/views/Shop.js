@@ -21,9 +21,9 @@ import rally from "../assets/img/color/rally.png";
 import { Link } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import Swal from "sweetalert2";
 import checkToken from "../components/RefreshToken";
-
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles(styles);
 
@@ -143,6 +143,7 @@ export default function Shop() {
     title: "Success!",
     text: "Product has been added to your cart successfully!",
     icon: "success",
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     showConfirmButton: false,
     timer: 1500,
   };
@@ -151,6 +152,7 @@ export default function Shop() {
     title: "Error!",
     text: "Something wrong, try again later!",
     icon: "error",
+    iconHtml: '<i class="fad fa-times"></i>',
     showConfirmButton: false,
     timer: 1500,
   };
@@ -160,6 +162,7 @@ export default function Shop() {
     text: "You must be logged in first!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -168,16 +171,18 @@ export default function Shop() {
     text: "This is your product has post for selling!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
-  }
+  };
 
   const alertMsgOverAvailable = {
     title: "Warning!!!",
     text: "You have provide quantity exceeds available products or this product has been unavailable for sale!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
-  }
+  };
 
   const getProducts = async (p) => {
     setPage(p);
@@ -428,10 +433,13 @@ export default function Shop() {
       Swal.fire(alertMsgSuccess);
     } else if (responseJson.message === "Over Availability") {
       Swal.fire(alertMsgOverAvailable);
+    } else {
+      Swal.fire(alertMsgError);
     }
   };
 
   const productsRender = showProducts.map((el, index) => {
+    if (el.list.length !== 0) {
     return (
       <div key={index} className="col-md-4 col-sm-6 col-xs-6 my-2">
         <Card className={customClasses.root}>
@@ -484,6 +492,7 @@ export default function Shop() {
         </Card>
       </div>
     );
+  }
   });
 
   return (

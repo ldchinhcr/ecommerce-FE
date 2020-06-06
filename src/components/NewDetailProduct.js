@@ -29,7 +29,8 @@ import configS3 from "../utils/AWSS3";
 import S3 from "react-aws-s3";
 import checkToken from "./RefreshToken";
 import {useDispatch} from "react-redux";
-
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -163,6 +164,24 @@ export default function CustomizedSteppers() {
   const [noList, setNoList] = useState(null);
   const dispatch = useDispatch();
 
+  const alertMsgSuccess = {
+    title: "Success!",
+    text: "Your product has been created!",
+    icon: "success",
+    iconHtml: '<i class="fad fa-check-circle"></i>',
+    showConfirmButton: false,
+    timer: 1500,
+  };
+
+  const alertMsgError = {
+    title: "Error!",
+    text: "Something wrong, try again later!",
+    icon: "error",
+    iconHtml: '<i class="fad fa-times"></i>',
+    showConfirmButton: false,
+    timer: 1500,
+  };
+
   const history = useHistory();
   useEffect(() => {
     if (!category) {
@@ -213,7 +232,7 @@ export default function CustomizedSteppers() {
     if (resJson.status === true) {
       setCategory(resJson.categories);
     } else {
-      alert("Something went wrong");
+      Swal.fire(alertMsgError)
       history.push("/");
     }
   };
@@ -345,10 +364,10 @@ export default function CustomizedSteppers() {
       setUserChosen(null);
       setOnload(false);
       setAttribute(false);
-      alert("Your product has been created");
+      Swal.fire(alertMsgSuccess);
       history.push(`/category/${userChosen.type}/products/${userChosen.product}/${resJson.data.slug}`)
     } else {
-      alert("Something went wrong, try again later!");
+      Swal.fire(alertMsgError);
       setOnload(false);
       setAttribute(false);
     }

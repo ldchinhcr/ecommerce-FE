@@ -13,10 +13,11 @@ import {
   Icon
 } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/src/sweetalert2.js';
 import rally from '../assets/img/color/rally.png';
 import checkToken from "./RefreshToken";
 import deleteImg from "../assets/img/delete.gif";
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,14 +77,18 @@ export default function ItemsInSelling(props) {
     title: "Success!",
     text: "Product deleted successfully!",
     icon: "success",
-    confirmButtonText: "Nice"
+    iconHtml: '<i class="fad fa-check-circle"></i>',
+    showConfirmButton: false,
+    timer: 1500,
   };
 
   const alertMsgError = {
     title: "Error!",
     text: "Something went wrong while fetch new user database!",
     icon: "error",
-    confirmButtonText: "Ok!"
+    iconHtml: '<i class="fad fa-times"></i>',
+    showConfirmButton: false,
+    timer: 1500,
   };
 
   const handleChangePage = (event, newPage) => {

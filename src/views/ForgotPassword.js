@@ -10,6 +10,8 @@ import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from 'react-reveal/Fade';
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,12 +40,31 @@ export default function ForgotPassword() {
   const onChange = (e) => {
       setEmail({...email, [e.target.name] : e.target.value});
   }
+
+  const alertMsgError = {
+    title: "Error!!!",
+    text: "Please enter a valid email!",
+    icon: "error",
+    showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
+    timer: 1500,
+  };
+
+  const alertMsgNotFound = {
+    title: "Error!!!",
+    text: "Something went wrong, try again later!",
+    icon: "error",
+    showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
+    timer: 1500,
+  };
+
   const onSubmit = async (e) => {
       setOnload(true);
       e.preventDefault();
       setAttribute(true)
       if (!email) {
-          alert('Please enter a valid email!');
+          Swal.fire(alertMsgError);
           setAttribute(false);
           return;
       }
@@ -61,6 +82,7 @@ export default function ForgotPassword() {
       if (resjson.status === true) {
         setDoneSend(true)
       } else {
+        Swal.fire(alertMsgNotFound);
         setEmail(null);
       }
       setAttribute(false);

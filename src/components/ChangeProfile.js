@@ -26,7 +26,8 @@ import {
 import S3 from "react-aws-s3";
 import { useSelector, useDispatch } from "react-redux";
 import configS3 from "../utils/AWSS3";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,6 +91,7 @@ export default function ChangeProfile() {
     text: "Your profile has been updated successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -98,6 +100,7 @@ export default function ChangeProfile() {
     text: "Something went wrong, please try again later!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1500,
   };
 
@@ -106,6 +109,7 @@ export default function ChangeProfile() {
     text: "Please provide all required information!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 

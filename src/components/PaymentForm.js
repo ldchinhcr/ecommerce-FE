@@ -1,13 +1,15 @@
 import React from "react";
 import "../styles/paymentcard.css";
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/src/sweetalert2.js';
 import payment from 'payment';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 
 const alertMsgNotCorrectCard = {
   title: "Warning!!!",
   text: "Your card number is not correct, please try with other card numbers!",
   icon: "warning",
   showConfirmButton: false,
+  iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
   timer: 1500,
 }
 class Card extends React.Component {

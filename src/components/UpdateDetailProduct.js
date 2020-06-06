@@ -7,7 +7,8 @@ import S3 from "react-aws-s3";
 import checkToken from "./RefreshToken";
 import { Modal } from "react-bootstrap";
 import ChromePicker from "react-color";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 import { CircularProgress } from "@material-ui/core";
 import rally from "../assets/img/color/rally.png";
 import { useDispatch } from "react-redux";
@@ -60,6 +61,7 @@ export default function UpdateDetailProduct(props) {
     text: "Your product has been updated successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -68,6 +70,7 @@ export default function UpdateDetailProduct(props) {
     text: "Your must provide some information to update!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1500,
   };
 
@@ -76,6 +79,7 @@ export default function UpdateDetailProduct(props) {
     text: "Something went wrong while update your product!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -84,6 +88,7 @@ export default function UpdateDetailProduct(props) {
     text: "This product is not belong to your to modify!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 2000,
   };
 

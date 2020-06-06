@@ -16,12 +16,12 @@ import Typography from "@material-ui/core/Typography";
 import rally from "../assets/img/color/rally.png";
 import { Link } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
-import {useParams} from "react-router-dom";
-import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2/src/sweetalert2.js";
+import "@sweetalert2/theme-wordpress-admin/wordpress-admin.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import checkToken from "../components/RefreshToken";
-
 
 const useStyles = makeStyles(styles);
 
@@ -120,7 +120,7 @@ const customStyles = makeStyles((theme) => ({
 }));
 
 export default function Category() {
-  const {type} = useParams();
+  const { type } = useParams();
   const [showProducts, setItem] = useState(null);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -137,6 +137,7 @@ export default function Category() {
     text: "Product has been added to your cart successfully!",
     icon: "success",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-check-circle"></i>',
     timer: 1500,
   };
 
@@ -145,6 +146,7 @@ export default function Category() {
     text: "Something wrong, try again later!",
     icon: "error",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-times"></i>',
     timer: 1000,
   };
 
@@ -153,6 +155,7 @@ export default function Category() {
     text: "You must be logged in first!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
   };
 
@@ -161,30 +164,34 @@ export default function Category() {
     text: "This is your product has post for selling!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
-  }
+  };
 
   const alertMsgOverAvailable = {
     title: "Warning!!!",
-    text: "You have provide quantity exceeds available products or this product has been unavailable for sale!",
+    text:
+      "You have provide quantity exceeds available products or this product has been unavailable for sale!",
     icon: "warning",
     showConfirmButton: false,
+    iconHtml: '<i class="fad fa-exclamation-triangle"></i>',
     timer: 1500,
-  }
+  };
 
-  const getProducts = async (t,p) => {
+  const getProducts = async (t, p) => {
     setPage(p);
     try {
-    const response = await fetch(process.env.REACT_APP_SERVER + "/category/" + t + `?page=${p}&&limit=9`);
-    const data = await response.json();
-    if (data.status === true) {
-      setTotal(data.totalProducts);
-      setItem(data.products);
-    }
+      const response = await fetch(
+        process.env.REACT_APP_SERVER + "/category/" + t + `?page=${p}&&limit=9`
+      );
+      const data = await response.json();
+      if (data.status === true) {
+        setTotal(data.totalProducts);
+        setItem(data.products);
+      }
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-
   };
 
   const override = css`
@@ -195,10 +202,9 @@ export default function Category() {
 
   useEffect(() => {
     if (!showProducts) {
-      getProducts(type,page);
+      getProducts(type, page);
     }
   }, [showProducts]);
-
 
   const handleChangePage = (event, value) => {
     setPage(value);
@@ -210,17 +216,19 @@ export default function Category() {
       Swal.fire(alertMsgNotLogined);
       return;
     }
-    const idxByUser = user.listInSelling.findIndex(item => item.slug === p.list[0].slug && item.product.slug === p.slug);
+    const idxByUser = user.listInSelling.findIndex(
+      (item) => item.slug === p.list[0].slug && item.product.slug === p.slug
+    );
     if (idxByUser === -1) {
-    const currentProduct = {
-      product: p._id,
-      color: p.list[0]._id,
-      quantity: 1,
-    };
-    await sendAddProductToBE(currentProduct);
-  } else {
-    Swal.fire(alertMsgNotAllowed);
-  }
+      const currentProduct = {
+        product: p._id,
+        color: p.list[0]._id,
+        quantity: 1,
+      };
+      await sendAddProductToBE(currentProduct);
+    } else {
+      Swal.fire(alertMsgNotAllowed);
+    }
   };
 
   const sendAddProductToBE = async (data) => {
@@ -281,57 +289,61 @@ export default function Category() {
     return icon;
   };
 
-
   const productsRender = showProducts.map((el) => {
-    return (
-      <div key={el.name} className="col-md-4 col-sm-6 col-xs-6 my-2">
-        <Card className={customClasses.root}>
-          <div
-            className={`${
-              el.priceDiscount ? "ribbon" : "no-ribbon"
-            } image-card`}
-          >
-            {el.priceDiscount ? <span>-{el.priceDiscount}%</span> : null}
-            <Link
-              to={`/category/${el.list[0].type.type}/products/${el.slug}/${el.list[0].slug}`}
+    if (el.list.length !== 0) {
+      return (
+        <div key={el.name} className="col-md-4 col-sm-6 col-xs-6 my-2">
+          <Card className={customClasses.root}>
+            <div
+              className={`${
+                el.priceDiscount ? "ribbon" : "no-ribbon"
+              } image-card`}
             >
-              <CardContent
-                style={{ zIndex: 1 }}
+              {el.priceDiscount ? <span>-{el.priceDiscount}%</span> : null}
+              <Link
+                to={`/category/${el.list[0].type.type}/products/${el.slug}/${el.list[0].slug}`}
               >
-                <Typography
-                  className={customClasses.title}
-                  component="div"
-                  gutterBottom
-                >
-                  <img
-                    src={el.imageCover}
-                    alt="products"
-                    className={customClasses.image + " " + "image-product"}
-                    style={{
-                      marginTop: "auto",
-                      marginBottom: "auto",
-                      width: "100%"
-                    }}
-                  />
-                </Typography>
-              </CardContent>
-            </Link>
-            <div className="add-to-card-cat" onClick={() => onHandleAddToCart(el)}><AddShoppingCartIcon className="mr-2" /> Add To Cart</div>
-          </div>
-          <CardActions className={customClasses.cardAction}>
-            <div className="w-100 text-center justify-content-center">
-              {listColor(el.list)}
+                <CardContent style={{ zIndex: 1 }}>
+                  <Typography
+                    className={customClasses.title}
+                    component="div"
+                    gutterBottom
+                  >
+                    <img
+                      src={el.imageCover}
+                      alt="products"
+                      className={customClasses.image + " " + "image-product"}
+                      style={{
+                        marginTop: "auto",
+                        marginBottom: "auto",
+                        width: "100%",
+                      }}
+                    />
+                  </Typography>
+                </CardContent>
+              </Link>
+              <div
+                className="add-to-card-cat"
+                onClick={() => onHandleAddToCart(el)}
+              >
+                <AddShoppingCartIcon className="mr-2" /> Add To Cart
+              </div>
             </div>
-            <Button size="small" className={customClasses.name}>
-              {el.name}
-            </Button>
-            <Button size="small" className={customClasses.price}>
-              {el.price} $
-            </Button>
-          </CardActions>
-        </Card>
-      </div>
-    );
+            <CardActions className={customClasses.cardAction}>
+              <div className="w-100 text-center justify-content-center">
+                {listColor(el.list)}
+              </div>
+              <Button size="small" className={customClasses.name}>
+                {el.name}
+              </Button>
+              <Button size="small" className={customClasses.price}>
+                {el.price} $
+              </Button>
+            </CardActions>
+          </Card>
+        </div>
+      );
+    }
   });
 
   return (
@@ -340,16 +352,16 @@ export default function Category() {
         <ShopCarousel />
         <div className={classNames(classes.main)}>
           <div className={classes.container}>
-
             <div className="row">{productsRender}</div>
 
             {Math.ceil(total / 9) !== 0 ? (
               <div className={customClasses.pagination}>
                 <Pagination
                   count={Math.ceil(total / 9)}
-                  page={page*1}
+                  page={page * 1}
                   onChange={handleChangePage}
-                  variant="outlined" shape="rounded"
+                  variant="outlined"
+                  shape="rounded"
                   size="large"
                 />
               </div>
