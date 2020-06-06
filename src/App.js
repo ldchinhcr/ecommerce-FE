@@ -23,6 +23,8 @@ import Footer from "./utils/Footer";
 import ScrollToTop from "react-router-scroll-top";
 import getCart from "./components/Cart";
 import CheckOut from "./views/CheckOut";
+import RouteNavOps1 from './components/RouteNavOps1';
+import RouteNavOps2 from './components/RouteNavOps2';
 
 function App() {
   const dispatch = useDispatch();
@@ -112,24 +114,20 @@ function App() {
     <div>
     <ScrollToTop>
     <Scroller />
-    <NavBar />
         <Switch>
-          <Route path="/" exact component={Homepage} />
-          <AuthRoute path="/login" component={Login} />
-          <AuthRoute path="/register" component={Register} />
-          <AuthRoute path="/forgotpassword" component={ForgotPassword} />
-          <Route path="/verifyaccount" component={VerifiedAccount} />
-          <Route path="/resetpassword" component={ResetPassword} />
-          <AuthExe path="/profile" component={Profile} />
-          <AuthExe path="/addproduct" component={AddProduct} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/explore" component={Shop} />
-          <Route
-            path="/category/:type/products/:product/:detail"
-            component={ViewProduct}
-          />
-          <Route path="/category/:type" component={Category} />
-          <AuthExe path="/checkout" component={CheckOut} />
+          <RouteNavOps1 path="/" exact component={Homepage} />
+          <RouteNavOps1 path="/login" component={AuthRoute} mainPage={Login}/>
+          <RouteNavOps1 path="/register" component={AuthRoute} mainPage={Register}/>
+          <RouteNavOps1 path="/forgotpassword" component={AuthRoute} mainPage={ForgotPassword}/>
+          <RouteNavOps1 path="/verifyaccount" component={Route} mainPage={VerifiedAccount}/>
+          <RouteNavOps1 path="/resetpassword" component={Route} mainPage={ResetPassword}/>
+          <RouteNavOps1 path="/profile" component={AuthExe} mainPage={Profile}/>
+          <RouteNavOps1 path="/addproduct" component={AuthExe} mainPage={AddProduct}/>
+          <RouteNavOps2 path="/cart" component={Route} mainPage={Cart}/>
+          <RouteNavOps1 path="/explore" component={Route} mainPage={Shop}/>
+          <RouteNavOps2 path="/category/:type/products/:product/:detail" component={Route} mainPage={ViewProduct}/>
+          <RouteNavOps1 path="/category/:type" component={Route} mainPage={Category}/>
+          <RouteNavOps2 path="/checkout" component={AuthExe} mainPage={CheckOut}/>
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

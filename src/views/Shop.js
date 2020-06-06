@@ -32,9 +32,13 @@ const customStyles = makeStyles((theme) => ({
     minWidth: 275,
     overflow: "hidden",
     boxShadow: "0px 0px 5px 2px #aaaaaa",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "column"
   },
   title: {
     fontSize: 14,
+    margin: "auto 0"
   },
   pagination: {
     width: "100%",
@@ -98,22 +102,22 @@ const customStyles = makeStyles((theme) => ({
   },
   image: {
     "@media (min-width: 576px)": {
-      height: "300px",
+      height: "260px",
     },
     "@media (min-width: 768px)": {
-      height: "350px",
+      height: "300px",
     },
     "@media (min-width: 992px)": {
-      height: "390px",
+      height: "320px",
     },
     "@media (min-width: 1200px)": {
-      height: "430px",
+      height: "380px",
     },
     "@media (min-width: 1500px)": {
-      height: "460px",
+      height: "450px",
     },
     "@media (min-width: 1800px)": {
-      height: "500px",
+      height: "600px",
     },
     "@media (min-width: 2440px)": {
       height: "650px",
@@ -441,8 +445,8 @@ export default function Shop() {
   const productsRender = showProducts.map((el, index) => {
     if (el.list.length !== 0) {
     return (
-      <div key={index} className="col-md-4 col-sm-6 col-xs-6 my-2">
-        <Card className={customClasses.root}>
+      <div key={index} className="col-md-4 col-sm-6 col-xs-6 my-2 d-flex justify-content-between flex-column">
+        <Card className={customClasses.root + " flex-fill"}>
           <div
             className={`${
               el.priceDiscount ? "ribbon" : "no-ribbon"
@@ -715,9 +719,7 @@ export default function Shop() {
                 </Pulse>
               </GridItem>
             </GridContainer>
-
-            <div className="row">{productsRender}</div>
-
+            <div className="row row-cols-1 row-cols-md-2">{productsRender}</div>
             {Math.ceil(total / 9) !== 0 ? (
               <div className={customClasses.pagination}>
                 <Pagination

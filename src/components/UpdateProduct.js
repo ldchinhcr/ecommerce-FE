@@ -207,7 +207,7 @@ export default function UpdateProduct(props) {
   };
 
   if (!props.product) {
-    return <div>On Loading...</div>;
+    return <div></div>;
   }
 
   return (

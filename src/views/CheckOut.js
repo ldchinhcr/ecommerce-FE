@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: "5%",
-    minHeight: "93%",
+    paddingTop: "5vh",
+    minHeight: "93vh",
     [theme.breakpoints.up(1000 + theme.spacing(2) * 2)]: {
       width: 1000,
       marginLeft: "auto",

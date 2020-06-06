@@ -18,8 +18,8 @@ import SwiperCorousel from "../components/SwiperCorousel";
 import ProductSection from "../components/ProductSection";
 import { Typography, Box } from "@material-ui/core";
 import PropTypes from "prop-types";
-import Fade from 'react-reveal/Fade';
-import {Link} from 'react-router-dom';
+import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 import { Tabs, Tab } from "@material-ui/core";
 import { TabContext } from "@material-ui/lab";
 
@@ -184,180 +184,212 @@ export default function Homepage() {
   }
 
   return (
-    <Fade opposite >
-    <div className="body-content">
-      <Parallax filter image={require("../assets/img/hp-bg.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-            <Fade top delay={500}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
-            </Fade>
-            <Fade bottom delay={1500}>
-              <h4>Hello there</h4>
-              </Fade>
-              <br />
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div
-          className={classes.container + " " + styleForContainerTabs.container}
-        >
-          <GridContainer className={classesProfile.navWrapper}>
-            <GridItem xs={12} sm={12} md={5}>
-              <GridContainer
-                className={classesProfile.navWrapper}
-                style={{ marginTop: "60px" }}
-              >
-                <GridItem xs={12} sm={12} md={6}>
-                  <img src={pic1} className={navImageClasses} />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <img src={pic2} className={navImageClasses} />
-                </GridItem>
-              </GridContainer>
-              <GridContainer className={classesProfile.navWrapper}>
-                <GridItem xs={12} sm={12} md={6}>
-                  <img src={pic3} className={navImageClasses} />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <img src={pic4} className={navImageClasses} />
-                </GridItem>
-              </GridContainer>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={7}>
-              <GridContainer
-                className={classesProfile.navWrapper}
-                style={{ height: "inherit" }}
-              >
-                <GridItem className="h-100">
-                  <div className={classesTabs.tabs + " " + navImageClasses}>
-                    <div className={classesTabs.demo2}>
-                      <TabContext value={value.toString()}>
-                        <StyledTabs
-                          value={value}
-                          onChange={handleChange}
-                          aria-label="styled tabs"
-                        >
-                          <StyledTab label="Discover" {...a11yProps(0)} />
-                          <StyledTab label="Modern Travel" {...a11yProps(1)} />
-                          <StyledTab label="Link Travel" {...a11yProps(2)} />
-                        </StyledTabs>
-                        <TabPanel
-                          className={classesTabs.tabPanel}
-                          value={value}
-                          index={0}
-                        >
-                          <h4
-                            className={
-                              styleTextContent.text1 +
-                              " " +
-                              styleTextContent.root
-                            }
-                            style={{ marginTop: "20px" }}
+    <Fade opposite>
+      <div className="body-content">
+        <Parallax filter image={require("../assets/img/hp-bg.jpg")}>
+          <div className={classes.container}>
+            <GridContainer>
+              <GridItem xs={12} sm={12} md={6}>
+                <Fade top delay={500}>
+                  <h1 className={classes.title}>Your Story Starts With Us.</h1>
+                </Fade>
+                <Fade bottom delay={1500}>
+                  <h4>Hello there</h4>
+                </Fade>
+                <br />
+              </GridItem>
+            </GridContainer>
+          </div>
+        </Parallax>
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <div
+            className={
+              classes.container + " " + styleForContainerTabs.container
+            }
+          >
+            <GridContainer className={classesProfile.navWrapper}>
+              <GridItem xs={12} sm={12} md={5}>
+                <GridContainer
+                  className={classesProfile.navWrapper}
+                  style={{ marginTop: "60px" }}
+                >
+                  <GridItem xs={12} sm={12} md={6}>
+                    <img src={pic1} className={navImageClasses} />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={6}>
+                    <img src={pic2} className={navImageClasses} />
+                  </GridItem>
+                </GridContainer>
+                <GridContainer className={classesProfile.navWrapper}>
+                  <GridItem xs={12} sm={12} md={6}>
+                    <img src={pic3} className={navImageClasses} />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={6}>
+                    <img src={pic4} className={navImageClasses} />
+                  </GridItem>
+                </GridContainer>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={7}>
+                <GridContainer
+                  className={classesProfile.navWrapper}
+                  style={{ height: "inherit" }}
+                >
+                  <GridItem className="h-100">
+                    <div className={classesTabs.tabs + " " + navImageClasses}>
+                      <div className={classesTabs.demo2}>
+                        <TabContext value={value.toString()}>
+                          <StyledTabs
+                            value={value}
+                            onChange={handleChange}
+                            aria-label="styled tabs"
                           >
-                            MIX & MATCH
-                          </h4>
-                          <h1
-                            className={
-                              styleTextContent.text4 +
-                              " " +
-                              styleTextContent.root
-                            }
+                            <StyledTab label="Discover" {...a11yProps(0)} />
+                            <StyledTab
+                              label="Modern Travel"
+                              {...a11yProps(1)}
+                            />
+                            <StyledTab label="Link Travel" {...a11yProps(2)} />
+                          </StyledTabs>
+                          <TabPanel
+                            className={classesTabs.tabPanel}
+                            value={value}
+                            index={0}
                           >
-                            Build your travel uniform
-                          </h1>
-                          <GridContainer
-                            className={classesProfile.navWrapper}
-                            style={{ marginTop: "20px" }}
-                          >
-                            <GridItem xs={12} sm={12} md={6}>
-                              <img
-                                src={suitcase}
-                                className={styleTextContent.img}
-                              />
-                              <Link to='/category/suitcase'><h5 className="item-hp">
-                                SUITCASE{" "}
-                                <ArrowForwardIcon className="icon-arrow-hp" />
-                              </h5></Link>
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={6}>
-                            <Link to='/category/bag'><img src={bag} className={styleTextContent.img} />
-                              <h5 className="item-hp">
-                                BAG{" "}
-                                <ArrowForwardIcon className="icon-arrow-hp" />
-                              </h5></Link>
-                            </GridItem>
-                          </GridContainer>
-                        </TabPanel>
-                        <TabPanel
-                          className={classesTabs.tabPanel}
-                          value={value}
-                          index={1}
-                        >
-                          <h5
-                            className={
-                              styleTextContent.text1 +
-                              " " +
-                              styleTextContent.root
-                            }
-                          >
-                            ON THE (SOCIAL) GRID
-                          </h5>
-
-                          <h3
-                            className={
-                              styleTextContent.text2 +
-                              " " +
-                              styleTextContent.root
-                            }
-                          >
-                            #modernTravel
-                          </h3>
-
-                          <h4
-                            className={
-                              styleTextContent.text3 +
-                              " " +
-                              styleTextContent.root
-                            }
-                          >
-                            You’ll love our products. But don’t take our word
-                            for it—here’s how your fellow travelers get Away.
-                          </h4>
-                        </TabPanel>
-                        <TabPanel value={value} index={2}>
-                            <h2 className={
-                              styleTextContent.text1 +
-                              " text-dark " +
-                              styleTextContent.root
-                            }>Link up</h2>
-                            <h4 className={
-                              styleTextContent.text3 +
-                              " text-dark " +
-                              styleTextContent.root
-                            }>Attach your personal item to your Carry-On when youre in transit to take on the world, then slide it off of your suitcase and take it with you to explore your surroundings.
+                            <h4
+                              className={
+                                styleTextContent.text1 +
+                                " " +
+                                styleTextContent.root
+                              }
+                              style={{ marginTop: "20px" }}
+                            >
+                              MIX & MATCH
                             </h4>
-                        </TabPanel>
-                      </TabContext>
+                            <h1
+                              className={
+                                styleTextContent.text4 +
+                                " " +
+                                styleTextContent.root
+                              }
+                            >
+                              Build your travel uniform
+                            </h1>
+                            <GridContainer
+                              className={classesProfile.navWrapper}
+                              style={{ marginTop: "20px" }}
+                            >
+                              <GridItem xs={12} sm={12} md={6}>
+                                <img
+                                  src={suitcase}
+                                  className={styleTextContent.img}
+                                />
+                                <Link to="/category/suitcase">
+                                  <h5 className="item-hp">
+                                    SUITCASE{" "}
+                                    <ArrowForwardIcon className="icon-arrow-hp" />
+                                  </h5>
+                                </Link>
+                              </GridItem>
+                              <GridItem xs={12} sm={12} md={6}>
+                                <Link to="/category/bag">
+                                  <img
+                                    src={bag}
+                                    className={styleTextContent.img}
+                                  />
+                                  <h5 className="item-hp">
+                                    BAG{" "}
+                                    <ArrowForwardIcon className="icon-arrow-hp" />
+                                  </h5>
+                                </Link>
+                              </GridItem>
+                            </GridContainer>
+                          </TabPanel>
+                          <TabPanel
+                            className={classesTabs.tabPanel}
+                            value={value}
+                            index={1}
+                          >
+                            <h5
+                              className={
+                                styleTextContent.text1 +
+                                " " +
+                                styleTextContent.root
+                              }
+                            >
+                              ON THE (SOCIAL) GRID
+                            </h5>
+
+                            <h3
+                              className={
+                                styleTextContent.text2 +
+                                " " +
+                                styleTextContent.root
+                              }
+                            >
+                              #modernTravel
+                            </h3>
+
+                            <h4
+                              className={
+                                styleTextContent.text3 +
+                                " " +
+                                styleTextContent.root
+                              }
+                            >
+                              You’ll love our products. But don’t take our word
+                              for it—here’s how your fellow travelers get Away.
+                            </h4>
+                          </TabPanel>
+                          <TabPanel value={value} index={2}>
+                            <h2
+                              className={
+                                styleTextContent.text1 +
+                                " text-dark " +
+                                styleTextContent.root
+                              }
+                            >
+                              Link up
+                            </h2>
+                            <h4
+                              className={
+                                styleTextContent.text3 +
+                                " text-dark " +
+                                styleTextContent.root
+                              }
+                            >
+                              Attach your personal item to your Carry-On when
+                              youre in transit to take on the world, then slide
+                              it off of your suitcase and take it with you to
+                              explore your surroundings.
+                            </h4>
+                          </TabPanel>
+                        </TabContext>
+                      </div>
                     </div>
-                  </div>
-                </GridItem>
-              </GridContainer>
-            </GridItem>
-          </GridContainer>
-          <ProductSection />
-          <GridContainer className="mx-2">
-          <GridItem>
-          <div className="w-100 text-center text-muted mt-3"><p style={{fontSize: "46px", fontStyle: 'italic', fontFamily: "'Raleway', sans-serif"}}>Trending Choices</p></div>
-          <SwiperCorousel />
-          </GridItem>
-          </GridContainer>
+                  </GridItem>
+                </GridContainer>
+              </GridItem>
+            </GridContainer>
+            <ProductSection />
+            <GridContainer className="mx-2">
+              <GridItem>
+                <div className="w-100 text-center text-muted mt-3">
+                  <p
+                    style={{
+                      fontSize: "46px",
+                      fontStyle: "italic",
+                      fontFamily: "'Raleway', sans-serif",
+                    }}
+                  >
+                    Trending Choices
+                  </p>
+                </div>
+                <SwiperCorousel />
+              </GridItem>
+            </GridContainer>
+          </div>
         </div>
       </div>
-    </div>
     </Fade>
   );
 }

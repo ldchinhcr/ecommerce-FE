@@ -96,22 +96,22 @@ const customStyles = makeStyles((theme) => ({
   },
   image: {
     "@media (min-width: 576px)": {
-      height: "300px",
+      height: "260px",
     },
     "@media (min-width: 768px)": {
-      height: "350px",
+      height: "300px",
     },
     "@media (min-width: 992px)": {
-      height: "390px",
+      height: "320px",
     },
     "@media (min-width: 1200px)": {
-      height: "430px",
+      height: "380px",
     },
     "@media (min-width: 1500px)": {
-      height: "460px",
+      height: "450px",
     },
     "@media (min-width: 1800px)": {
-      height: "500px",
+      height: "600px",
     },
     "@media (min-width: 2440px)": {
       height: "650px",

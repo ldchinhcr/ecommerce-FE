@@ -99,25 +99,25 @@ const customStyles = makeStyles((theme) => ({
   },
   image: {
     "@media (min-width: 576px)": {
-      height: "250px",
+      height: "260px",
     },
     "@media (min-width: 768px)": {
-      height: "250px",
-    },
-    "@media (min-width: 992px)": {
-      height: "270px",
-    },
-    "@media (min-width: 1200px)": {
       height: "300px",
     },
-    "@media (min-width: 1500px)": {
+    "@media (min-width: 992px)": {
       height: "320px",
     },
+    "@media (min-width: 1200px)": {
+      height: "380px",
+    },
+    "@media (min-width: 1500px)": {
+      height: "450px",
+    },
     "@media (min-width: 1800px)": {
-      height: "360px",
+      height: "600px",
     },
     "@media (min-width: 2440px)": {
-      height: "400px",
+      height: "650px",
     },
   },
   cardRoot: {

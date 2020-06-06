@@ -50,7 +50,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export default function NavBar() {
+export default function NavbarWhite() {
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
   const classes = useStyles();
@@ -161,7 +161,7 @@ export default function NavBar() {
       </div>
       <Header
         brand="Distance Traveler"
-        color="transparent"
+        color="white"
         changeColorOnScroll={{
           height: 150,
           color: "dark",

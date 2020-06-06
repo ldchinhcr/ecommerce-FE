@@ -324,11 +324,14 @@ li {
 
 .add-to-card-cat {
   cursor: pointer;
-  width: 100%;
+  padding: 10px;
   align-items: center;
-  display: none;
-  justify-content: center;
+  width: 100%;
+  text-align: center;
+  /* display: none; */
   position: absolute;
+  justify-content: center;
+  margin: 0 auto;
   margin-bottom: 0;
   bottom: -30%;
   left: 0;
@@ -337,7 +340,6 @@ li {
   color: white;
   height: 60px;
   display: flex;
-  transition: all 0.5s ease 0s;
 }
 
 .image-card {
@@ -427,6 +429,7 @@ li {
 
 .add-to-card-cat:hover {
   color: antiquewhite;
+  background-color: #000;
 }
 
 .trashContainer {

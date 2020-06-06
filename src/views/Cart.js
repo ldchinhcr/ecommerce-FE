@@ -129,7 +129,7 @@ export default function Cart() {
 
     return (
         <Fade opposite>
-            <div className="text-dark d-flex flex-column justify-content-center align-items-center mt-5">
+            <div className="text-dark d-flex flex-column justify-content-center align-items-center" style={{height: '88vh', marginTop: '5vh', position: 'relative'}}>
               <Header products={currentCartPopulated} />
               {user && currentCartPopulated.length > 0 ? (
                 <div>
