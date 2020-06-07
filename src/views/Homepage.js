@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import GridContainer from "../utils/GridContainer";
@@ -11,8 +10,8 @@ import pic1 from "../assets/img/lg-hp1.webp";
 import pic2 from "../assets/img/lg-hp2.webp";
 import pic3 from "../assets/img/lg-hp3.webp";
 import pic4 from "../assets/img/lg-hp4.webp";
-import suitcase from "../assets/img/suitcase-hp.png";
-import bag from "../assets/img/bag-hp.png";
+import suitcase from "../assets/img/suitcase-hp.jpg";
+import bag from "../assets/img/bag-hp.jpg";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import SwiperCorousel from "../components/SwiperCorousel";
 import ProductSection from "../components/ProductSection";
