@@ -207,19 +207,19 @@ a:visited {
   }
 
   .slide-shop1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.8)), url("../assets//img/explore/shop-bg1.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.8)), url("../assets/img/explore/shop-bg1.jpg");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
   }
 
   .slide-shop2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../assets//img/explore/shop-bg2.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../assets/img/explore/shop-bg2.jpg");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
   }
 
   .slide-shop3 {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../assets//img/explore/shop-bg3.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../assets/img/explore/shop-bg3.jpg");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
   }

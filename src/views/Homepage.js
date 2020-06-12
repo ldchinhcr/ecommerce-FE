@@ -213,18 +213,18 @@ export default function Homepage() {
                   style={{ marginTop: "60px" }}
                 >
                   <GridItem xs={12} sm={12} md={6}>
-                    <img src={pic1} className={navImageClasses} />
+                    <img src={pic1} className={navImageClasses}/>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
-                    <img src={pic2} className={navImageClasses} />
+                    <img src={pic2} className={navImageClasses}/>
                   </GridItem>
                 </GridContainer>
                 <GridContainer className={classesProfile.navWrapper}>
                   <GridItem xs={12} sm={12} md={6}>
-                    <img src={pic3} className={navImageClasses} />
+                    <img src={pic3} className={navImageClasses}/>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
-                    <img src={pic4} className={navImageClasses} />
+                    <img src={pic4} className={navImageClasses}/>
                   </GridItem>
                 </GridContainer>
               </GridItem>
@@ -280,7 +280,7 @@ export default function Homepage() {
                               <GridItem xs={12} sm={12} md={6}>
                                 <img
                                   src={suitcase}
-                                  className={styleTextContent.img}
+                                  className="w-100"
                                 />
                                 <Link to="/category/suitcase">
                                   <h5 className="item-hp">
@@ -293,7 +293,7 @@ export default function Homepage() {
                                 <Link to="/category/bag">
                                   <img
                                     src={bag}
-                                    className={styleTextContent.img}
+                                    className="w-100"
                                   />
                                   <h5 className="item-hp">
                                     BAG{" "}
