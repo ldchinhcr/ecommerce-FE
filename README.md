@@ -1,4 +1,5 @@
 ## View online at: https://ecommerce.chinh.me
+### Backup Link: https://lux-ecommerce.netlify.app
 
 ![Landing Page](https://i.imgur.com/m6735YH.png)
 
