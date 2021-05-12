@@ -41,7 +41,7 @@
     "react-swipeable-views": "^0.13.9",
     "redux": "^4.0.5",
     "sweetalert2": "^9.13.2",
-    "swiper": "^5.4.0",
+    "swiper": "^6.5.1",
     "typescript": "^3.9.3"
   },
   "scripts": {
